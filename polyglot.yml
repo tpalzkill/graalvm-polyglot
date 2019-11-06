@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: polyglot
+spec:
+  selector:
+    matchLabels:
+      app: polyglot
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: polyglot
+    spec:
+      containers:
+        - name: polyglot
+          # enter the path to your image, be sure to include the correct region prefix
+          image: phx.ocir.io/orasenatdpltintegration02/polyglot:latest
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        # enter the name of the secret you created
+        - name: ocirsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: polyglot-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: polyglot

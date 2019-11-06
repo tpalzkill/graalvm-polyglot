@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "scripts": {
+
+    "start": "node --polyglot --jvm server.js",
+    
+    "test": "…"
+    
+    }
+}
