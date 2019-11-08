@@ -47,6 +47,7 @@ const BigInteger = Java.type('java.math.BigInteger')
 
 app.get('/', function (req, res) {
   var text = 'Hello World from Graal.js!<br> '
+  var text += 'we can update! <br> '
 
   // Using Java standard library classes
   text += BigInteger.valueOf(10).pow(100)
