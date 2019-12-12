@@ -50,6 +50,7 @@ app.get('/', function (req, res) {
   // text += '<h2>we can update!</h2><br>'
 
   // Using Java standard library classes
+  text += '<p> Big Int from Java </p>'
   text += BigInteger.valueOf(10).pow(100)
           .add(BigInteger.valueOf(43)).toString() + '<br>'
 
@@ -64,7 +65,7 @@ app.get('/', function (req, res) {
      x <- 1:100
      y <- sin(x/10)
      z <- cos(x^1.3/(runif(1)*5+10))
-     print(cloud(x~y*z, main="cloud plot"))
+     print(cloud(x~y*z, main="cloud plot from R"))
      grDevices:::svg.off()
     `);
 
